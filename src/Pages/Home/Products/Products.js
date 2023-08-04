@@ -16,7 +16,7 @@ const Products = () => {
                 <p><small>the majority have suffered alteration in some form, by injected humour, or randomised <br /> words which don't look even slightly believable. </small></p>
 
             </div>
-            <div className='mt-[50px] md:grid grid-cols-3 gap-8 flex'>
+            <div className='mt-[50px] md:grid grid-cols-3 gap-8 relative'>
                 <div className="card w-[364px]  bg-base-100 shadow-xl  mr-20">
                     <figure className="px-10 pt-10 bg-[#F3F3F3]">
                         <img src={img1} alt="Shoes" className="rounded-xl w-[156px] h-[153px]" />
@@ -101,7 +101,7 @@ const Products = () => {
                         <p className='font-bold text-red-500'>$20.00</p>
                     </div>
                 </div>
-                <div className='flex justify-center w-full '>
+                <div className='flex justify-center w-full absolute bottom-0 top-full'>
                     <button class="btn btn-outline btn-secondary mt-[50px]">More Products</button>
                 </div>
             </div>
