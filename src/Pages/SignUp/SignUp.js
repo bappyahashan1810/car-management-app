@@ -2,7 +2,7 @@ import React from 'react';
 import login from '../../assets/images/login/login.svg'
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
     const handlelogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -20,8 +20,14 @@ const Login = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
-                            <h1 className="text-4xl font-bold text-center">Login</h1>
+                            <h1 className="text-4xl font-bold text-center">Sign Up</h1>
                             <form onSubmit={handlelogin}>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text" name='name' placeholder="name" className="input input-bordered" required />
+                                </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -39,7 +45,7 @@ const Login = () => {
                                 </div>
                                 <div className="form-control mt-6">
 
-                                    <input className="btn bg-red-500" type="submit" value="Sign In" />
+                                    <input className="btn bg-red-500" type="submit" value="Sign Up" />
                                 </div>
                             </form>
                             <div className='mt-[30px] text-center'>
@@ -70,7 +76,7 @@ const Login = () => {
                                 </svg>
                             </div>
                             <div className='text-center mt-[40px]'>
-                                <p><small>Have an account? <Link className='text-orange-500 font-bold' to='/signup'>Sign Up</Link></small></p>
+                                <p><small>Already have an account?<Link className='text-orange-500 font-bold' to='/login'>Log In</Link></small></p>
                             </div>
                         </div>
                     </div>
@@ -80,4 +86,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
