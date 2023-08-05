@@ -1,22 +1,33 @@
-import React from 'react';
-import login from '../../assets/images/login/login.svg'
+import React, { useContext } from 'react';
+import login1 from '../../assets/images/login/login.svg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
+
+
     const handlelogin = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.email.value;
+        const email = form.email.value;
         const password = form.password.value;
-        console.log(name, password);
+        console.log(email, password);
+        login(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
 
+            })
+            .then(error => console.error(error));
     }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row ">
                     <div className="w-1/2 mr-[69px]">
-                        <img src={login} alt="" />
+                        <img src={login1} alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
@@ -54,7 +65,7 @@ const Login = () => {
                                     <path d="M9.73673 9.355V21.494H13.5057V15.491C13.5057 13.907 13.8037 12.373 15.7677 12.373C17.7047 12.373 17.7287 14.184 17.7287 15.591V21.495H21.4997V14.838C21.4997 11.568 20.7957 9.055 16.9737 9.055C15.1387 9.055 13.9087 10.062 13.4057 11.015H13.3547V9.355H9.73673ZM3.59473 9.355H7.36973V21.494H3.59473V9.355Z" fill="#0A66C2" />
                                 </svg>
                                 <svg className='border-black border p-1' xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 20 20" fill="none">
-                                    <g clip-path="url(#clip0_351_972)">
+                                    <g clipPath="url(#clip0_351_972)">
                                         <path d="M4.6875 10.0001C4.6875 9.00919 4.96051 8.08095 5.4348 7.28614V3.91474H2.0634C0.725313 5.65255 0 7.77048 0 10.0001C0 12.2297 0.725313 14.3476 2.0634 16.0854H5.4348V12.714C4.96051 11.9192 4.6875 10.991 4.6875 10.0001Z" fill="#FBBD00" />
                                         <path d="M10 15.3126L7.65625 17.6564L10 20.0001C12.2296 20.0001 14.3475 19.2748 16.0854 17.9367V14.5689H12.7175C11.9158 15.0449 10.9836 15.3126 10 15.3126Z" fill="#0F9D58" />
                                         <path d="M5.43488 12.7139L2.06348 16.0854C2.3284 16.4294 2.61688 16.7589 2.92902 17.0711C4.81777 18.9598 7.32898 20 10.0001 20V15.3125C8.06164 15.3125 6.3627 14.2688 5.43488 12.7139Z" fill="#31AA52" />

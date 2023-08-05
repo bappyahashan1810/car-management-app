@@ -13,7 +13,7 @@ const Service = ({ service }) => {
 
                     <div className="card-actions ">
                         <p className='text-red-500 font-bold'>price: ${price}</p>
-                        <Link to={`/serviceDetails/${_id}`}><AiOutlineArrowRight className='text-2xl text-red-500'></AiOutlineArrowRight></Link>
+                        <Link to={`/services/${_id}`}><AiOutlineArrowRight className='text-2xl text-red-500'></AiOutlineArrowRight></Link>
                     </div>
                 </div>
             </div>

@@ -102,7 +102,7 @@ const Products = () => {
                     </div>
                 </div>
                 <div className='flex justify-center w-full absolute bottom-0 top-full'>
-                    <button class="btn btn-outline btn-secondary mt-[50px]">More Products</button>
+                    <button className="btn btn-outline btn-secondary mt-[50px]">More Products</button>
                 </div>
             </div>
 
