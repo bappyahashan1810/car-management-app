@@ -8,7 +8,7 @@ const Navbar = () => {
     const handleLogout = () => {
         logout()
             .then(() => { })
-            .then(error => console.error(error));
+            .catch(error => console.error(error));
     }
 
 
@@ -19,7 +19,9 @@ const Navbar = () => {
         <li><Link>Blog</Link></li>
         <li><Link>Content</Link></li>
         {
-            user?.email ? <li><button onClick={handleLogout} className="btn btn-outline btn-accent">Log out</button></li>
+            user?.email ? <><li onClick={handleLogout}><Link>Log out</Link></li>
+                <li><Link to='/booking'>My Bookings</Link></li>
+            </>
                 :
                 <li><Link to='/login'>Login</Link></li>}
     </>

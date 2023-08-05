@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import login from '../../assets/images/login/login.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import Swal from 'sweetalert2'
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);
@@ -18,8 +19,18 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
+                if (user.uid) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
             })
-            .then(error => {
+            .catch(error => {
 
                 console.error(error)
 
