@@ -1,9 +1,9 @@
 import React from 'react';
-import { GrUpdate } from 'react-icons/gr';
-import { Link } from 'react-router-dom';
 
-const BookingRow = ({ booking, handledelete }) => {
-    const { _id, img, title, price, date } = booking;
+
+const BookingRow = ({ booking, handledelete, handleconfirm }) => {
+    const { _id, img, title, price, date, status } = booking;
+
 
 
 
@@ -34,7 +34,10 @@ const BookingRow = ({ booking, handledelete }) => {
             <td>{price}</td>
             <td>{date}</td>
             <th>
-                <Link><GrUpdate className='text-3xl text-green-600'></GrUpdate></Link>
+                {status ? <button className='btn btn-sm btn-primary'>Confirmed</button>
+                    :
+                    <button onClick={() => handleconfirm(_id)} className='btn btn-sm p-1'>Please confirm</button>
+                }
             </th>
         </tr>
     );
